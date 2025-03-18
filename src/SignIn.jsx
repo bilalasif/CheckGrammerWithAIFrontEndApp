@@ -62,7 +62,7 @@ function SignIn() {
 
   if (isLoading) {
     return (
-      <div>
+      <div className="h-screen flex flex-col justify-center items-center">
         <Loader />
       </div>
     );
