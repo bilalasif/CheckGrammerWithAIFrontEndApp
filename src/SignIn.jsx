@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { validateEmail, axiosApiCall } from "./utils/utils";
+import { validateEmail, axiosApiCall, errorToast } from "./utils/utils";
 import Loader from "./components/Loader";
 
 function SignIn() {
@@ -55,7 +55,9 @@ function SignIn() {
       } else {
         errorToast("Unable to Sign In");
       }
-    } catch (error) {}
+    } catch (error) {
+      errorToast("Unknown Error occured while singing in");
+    }
   };
 
   if (isLoading) {
@@ -132,7 +134,7 @@ function SignIn() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className=" cursor-pointer flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={onSubmit}
             >
               Sign in
@@ -142,8 +144,8 @@ function SignIn() {
 
         <p className="mt-10 text-center text-sm/6 text-gray-500">
           Don't have an account?
-          <Link to={"/sign-in"}>
-            <span className="font-semibold text-indigo-600 hover:text-indigo-500">
+          <Link to={"/sign-up"}>
+            <span className=" cursor-pointer font-semibold text-indigo-600 hover:text-indigo-500">
               {" "}
               Sign Up Now.
             </span>
