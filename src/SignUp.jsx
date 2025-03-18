@@ -49,7 +49,6 @@ function SignUp() {
         email,
         password,
       });
-      console.log("resp", resp);
       if (resp.status == 201) {
         navigate("/");
       } else {

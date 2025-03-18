@@ -17,7 +17,6 @@ function DashBoard() {
   const onSignoutclick = async () => {
     try {
       const resp = await axiosApiCall("/sign-out", "POST");
-      console.log("resp", resp);
       if (resp.status == 200) {
         navigate("/sign-in");
       } else {
@@ -51,8 +50,6 @@ function DashBoard() {
         apiKey,
         prompt,
       });
-
-      console.log("resp", resp);
 
       const { data } = resp;
       const { originalPromptResponse } = data;
